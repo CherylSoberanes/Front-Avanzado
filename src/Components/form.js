@@ -3,7 +3,13 @@ import { Box, Grid2, TextField, Typography, Button } from "@mui/material";
 import useForm from "../hooks/useForm";
 
 const Form = () => {
-   const [formData, handleChange, resetForm] = useForm ({name: '', email:'', date:'', country:'', age: ''});
+   const [formData, handleChange, resetForm] = useForm ({
+        name: '', 
+        email:'', 
+        date:'', 
+        country:'', 
+        age: '',
+    });
 
     const handleSubmit = (e) => {
         e.preventDefault();
