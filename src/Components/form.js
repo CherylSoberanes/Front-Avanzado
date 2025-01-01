@@ -1,18 +1,45 @@
 import React from "react"; 
-import { Box } from "@mui/material";
+import { Box, Grid2, TextField, Typography } from "@mui/material";
 import useForm from "../hooks/useForm";
 
 const Form = () => {
-    [FormData, handleChange, resetForm] = useForm ({name: '', email:'', date:'', country:'', age: ''});
+   const [formData, handleChange, resetForm] = useForm ({name: '', email:'', date:'', country:'', age: ''});
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        console.log(FormData);
+        console.log(formData);
         resetForm();
     };
 
     return (
-        <Box sx={{p: 2, border: '1px dashed grey'}}>
+        <Box sx={{maxWidth: 400, margin: 'auto', mt: 5}}>
+            <Typography variant="h4" align="center" gutterBottom>
+                Formulario en React Avanzado
+            </Typography>
+            <form onSubmit={handleSubmit}>
+                <Grid2 container spacing={2}>
+                    <TextField
+                    label="Nombre"
+                    name="name"
+                    value={formData.name}
+                    onChange={handleChange}
+                    fullWidth
+                    required
+                    />
+                </Grid2>
+                <Grid2 item xs={12}>
+                    <TextField
+                    label="Correo"
+                    name="email"
+                    value={formData.email}
+                    onChange={handleChange}
+                    fullWidth
+                    required
+                    />
+                </Grid2>
+              
+
+            </form>
 
         </Box>
     );
