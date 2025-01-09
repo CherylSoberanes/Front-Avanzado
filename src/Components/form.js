@@ -14,12 +14,25 @@ const Form = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
        
-    if (!/\S+@\S+.\S+/.test(formData.email)){
-
+        if (!/\S+@\S+.\S+/.test(formData.email)){
+            alert ("Por favor ingresa un correo válido");
+            return;
+            }
+    
+        const age = parseInt(formData.age)
+        if (isNaN(age)|| age < 0 || age > 150 ){
+            alert("la edad debe estar entre el 0 y 150");
+            return;
+            }
+    
+        if (age < 18){
+            alert("Usted no cumple la mayoría de edad")
+            return;
         }
-   
-        console.log(formData);
-        resetForm();
+
+            console.log("Datos del formulario: ", formData);
+            resetForm();
+
     };
 
     return (
